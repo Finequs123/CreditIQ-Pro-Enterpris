@@ -1,0 +1,181 @@
+📊 Variable Categories & Scientific Analysis
+🏦 Core Credit Variables (40% Weight) - Foundation of Risk Assessment
+
+Credit Score (12% Weight)
+Scientific Basis: Most predictive single variable for default probability
+
+750+: Premium borrowers (1.0 score)
+700-729: Good borrowers (0.8 score)
+650-699: Average borrowers (0.6 score)
+600-649: Below average (0.3 score)
+<600: High risk (0.0 score)
+FOIR - Fixed Obligation to Income Ratio (7% Weight)
+Scientific Basis: Measures debt burden capacity
+
+≤35%: Healthy debt load (1.0 score)
+36-45%: Manageable (0.6 score)
+46-55%: Stretched (0.3 score)
+>55%: Over-leveraged (0.0 score)
+DPD30Plus History (6% Weight)
+Scientific Basis: Recent payment behavior predictor
+
+0 instances: Excellent discipline (1.0 score)
+1 instance: Minor issue (0.5 score)
+≥2 instances: Clearance failure (0.0 score)
+Credit Enquiry Count (5% Weight)
+Scientific Basis: Credit hunger indicator
+
+0-1 enquiries: Low credit seeking (1.0 score)
+2-3 enquiries: Moderate seeking (0.6 score)
+>3 enquiries: High credit hunger (0.2 score)
+Age Analysis (3% Weight)
+Scientific Basis: Income stability and experience correlation
+
+26-35 years: Prime earning age (1.0 score)
+36-45 years: Established career (0.8 score)
+21-25 / 46-55: Transitional phases (0.6 score)
+56-60: Pre-retirement risk (0.4 score)
+Monthly Income (7% Weight)
+Scientific Basis: Absolute repayment capacity
+
+>₹30,000: Strong capacity (1.0 score)
+₹20,000-30,000: Moderate capacity (0.6 score)
+₹18,000-20,000: Limited capacity (0.4 score)
+₹15,000-18,000: Minimum viable (0.3 score)
+🧠 Behavioral Analytics (25% Weight) - Journey Completion Predictors
+
+Credit Vintage (6% Weight)
+Scientific Basis: Credit system experience and familiarity
+
+>60 months: Seasoned borrower (1.0 score)
+37-60 months: Experienced (0.8 score)
+25-36 months: Moderate experience (0.6 score)
+13-24 months: Limited experience (0.4 score)
+7-12 months: New to credit (0.2 score)
+≤6 months: Very new (0.0 score)
+Loan Mix Type (5% Weight)
+Scientific Basis: Product sophistication and digital comfort
+
+PL/HL/CC: High sophistication (1.0 score)
+Gold + Consumer Durable: Moderate sophistication (0.6 score)
+Agri/Other loans: Basic products (0.4 score)
+Only Gold: Limited experience (0.3 score)
+Loan Completion Ratio (7% Weight)
+Scientific Basis: Strong predictor of digital journey completion
+
+>70%: High completion intent (1.0 score)
+40-70%: Moderate completion intent (0.6 score)
+<40%: Low completion intent (0.3 score)
+Defaulted Loans Count (7% Weight)
+Scientific Basis: Historical reliability indicator
+
+0 defaults: Clean history (1.0 score)
+>0 defaults: Clearance failure (0.0 score)
+💼 Employment Stability (15% Weight) - Income Predictability
+
+Job Type (6% Weight)
+Scientific Basis: Income stability and employment security
+
+Government/PSU: Highest stability (1.0 score)
+Private Company (MNC): High stability (0.9 score)
+Private Company (Local): Moderate stability (0.7 score)
+Self Employed Professional: Variable income (0.6 score)
+Business Owner: Entrepreneurial risk (0.5 score)
+Freelancer/Contract: Irregular income (0.3 score)
+Employment Tenure (5% Weight)
+Scientific Basis: Job security and income continuity
+
+≥60 months: Very stable (1.0 score)
+36-59 months: Stable (0.8 score)
+24-35 months: Moderately stable (0.6 score)
+12-23 months: Building stability (0.4 score)
+6-11 months: New role (0.2 score)
+<6 months: Probationary risk (0.0 score)
+Company Stability (4% Weight)
+Scientific Basis: Employer reliability and continuity
+
+Fortune 500: Market leaders (1.0 score)
+Large Enterprise: Established companies (0.9 score)
+Mid-size Company: Growing businesses (0.7 score)
+Small Company: Higher volatility (0.5 score)
+Startup: Entrepreneurial risk (0.3 score)
+Unknown: Information gap (0.1 score)
+💳 Banking Behavior (10% Weight) - Financial Discipline
+
+Account Vintage (3% Weight)
+Scientific Basis: Banking relationship stability
+
+≥60 months: Long-term relationship (1.0 score)
+36-59 months: Established relationship (0.8 score)
+24-35 months: Developing relationship (0.6 score)
+12-23 months: New relationship (0.4 score)
+<12 months: Recent account (0.2 score)
+Average Monthly Balance (4% Weight)
+Scientific Basis: Liquidity and financial buffer
+
+≥₹1,00,000: High liquidity (1.0 score)
+₹50,000-99,999: Good liquidity (0.8 score)
+₹25,000-49,999: Moderate liquidity (0.6 score)
+₹10,000-24,999: Basic liquidity (0.4 score)
+₹5,000-9,999: Low liquidity (0.2 score)
+<₹5,000: Minimal liquidity (0.0 score)
+Bounce Frequency (3% Weight)
+Scientific Basis: Payment discipline and account management
+
+0 bounces: Perfect discipline (1.0 score)
+1-2 bounces: Minor issues (0.7 score)
+3-5 bounces: Moderate issues (0.4 score)
+6-10 bounces: Significant issues (0.2 score)
+>10 bounces: Poor management (0.0 score)
+🌍 Geographic & Social Factors (5% Weight) - Contextual Indicators
+
+Geographic Risk (2% Weight)
+Scientific Basis: Location-based economic stability and infrastructure
+
+Metro Tier 1: Best infrastructure (1.0 score)
+Metro Tier 2: Good infrastructure (0.8 score)
+Urban: Moderate infrastructure (0.7 score)
+Semi-Urban: Basic infrastructure (0.5 score)
+Rural: Limited infrastructure (0.3 score)
+Remote: Minimal infrastructure (0.1 score)
+Mobile Number Vintage (2% Weight)
+Scientific Basis: Digital stability and identity consistency
+
+≥60 months: Very stable identity (1.0 score)
+36-59 months: Stable identity (0.8 score)
+24-35 months: Moderate stability (0.6 score)
+12-23 months: Developing stability (0.4 score)
+<12 months: New/changed number (0.2 score)
+Digital Engagement Score (1% Weight)
+Scientific Basis: Digital literacy and completion probability
+
+80-100: High digital comfort (1.0 score)
+60-79: Good digital comfort (0.8 score)
+40-59: Moderate digital comfort (0.6 score)
+20-39: Limited digital comfort (0.4 score)
+<20: Poor digital comfort (0.2 score)
+💰 Exposure & Intent (5% Weight) - Risk Context
+
+Unsecured Loan Amount (2% Weight)
+Scientific Basis: Current unsecured debt burden
+
+No unsecured loans: Lower risk (0.6 score)
+<₹50,000: Low burden (0.8 score)
+₹50,000-₹1,00,000: Optimal range (1.0 score)
+>₹1,00,000: High burden (0.6 score)
+Outstanding Amount Percentage (1% Weight)
+Scientific Basis: Credit utilization pattern
+
+<30%: Healthy utilization (1.0 score)
+30-60%: Moderate utilization (0.6 score)
+>60%: High utilization (0.3 score)
+Our Lender Exposure (1% Weight)
+Scientific Basis: Existing relationship indicator
+
+>₹0: Existing customer (1.0 score)
+₹0: New customer (0.0 score)
+Channel Type (1% Weight)
+Scientific Basis: Application source quality and completion intent
+
+Merchant/Referral: Higher intent and guided support (1.0 score)
+Digital/Other: Standard self-service intent (0.5 score)

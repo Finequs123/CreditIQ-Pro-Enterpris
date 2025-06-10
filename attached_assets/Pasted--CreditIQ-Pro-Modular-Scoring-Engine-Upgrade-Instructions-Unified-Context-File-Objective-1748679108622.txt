@@ -1,0 +1,129 @@
+📄 CreditIQ Pro – Modular Scoring Engine Upgrade Instructions (Unified Context File)
+
+🎯 Objective:
+Enhance CreditIQ Pro to support diverse DSA needs with:
+1. Modular scoring logic per variable
+2. Fixed-weight fallback scoring (missing = 0 or default)
+3. Flexible template mapping via DSA-uploaded formats
+4. Transparent output with score reasons per field
+
+==========================
+1️⃣ MODULAR SCORING ENGINE
+==========================
+🔧 What to do:
+- Create one function per variable for scoring.
+- Apply fixed weight per variable (even if field is missing).
+- Missing fields get score = 0.0 and a “reason” flag.
+
+🔧 Sample function:
+def score_account_vintage(value):
+    if value is None: return 0.0
+    if value >= 60: return 1.0
+    elif value >= 36: return 0.8
+    elif value >= 24: return 0.6
+    elif value >= 12: return 0.4
+    else: return 0.2
+
+🔧 Scoring Registry:
+SCORING_REGISTRY = {
+    "AccountVintage": {"func": score_account_vintage, "weight": 3},
+    "AMB": {"func": score_amb, "weight": 4},
+    "BounceCount": {"func": score_bounce_count, "weight": 3},
+    "GeoRisk": {"func": score_geo_risk, "weight": 2},
+    "MobileVintage": {"func": score_mobile_vintage, "weight": 2},
+    "DigitalScore": {"func": score_digital_score, "weight": 1},
+    "EmploymentTenure": {"func": score_employment_tenure, "weight": 5},
+    "CompanyStability": {"func": score_company_stability, "weight": 4},
+}
+
+🔧 Final Score Calculation:
+total_score = 0
+total_weight = 0
+
+for var, details in SCORING_REGISTRY.items():
+    score_fn = details["func"]
+    weight = details["weight"]
+    value = row.get(var)
+
+    if value is None:
+        score = 0.0
+        row[f"{var}_score_reason"] = "Missing field"
+    else:
+        score = score_fn(value)
+        row[f"{var}_score_reason"] = "Scored"
+
+    row[f"{var}_score"] = score
+    total_score += score * weight
+    total_weight += weight
+
+row["final_score"] = round((total_score / 100) * 100, 2)
+
+==================================
+2️⃣ FIELD MAPPING ENGINE (TEMPLATE FLEXIBILITY)
+==================================
+🔧 What to do:
+- Allow DSA to upload any CSV format.
+- Ask them to provide a JSON-style field mapping.
+
+Example:
+{
+  "bal_avg": "AMB",
+  "mobile_age": "MobileVintage",
+  "emp_category": "CompanyStability"
+}
+
+🔧 Implementation:
+df.rename(columns=field_mapping_dict, inplace=True)
+
+- Store mapping config per partner
+- Apply rename before scoring begins
+
+==========================
+3️⃣ FALLBACK SCORING LOGIC
+==========================
+🔧 What to do:
+- If a field is missing, use default fallback score
+- Example fallback dictionary:
+
+FALLBACK_SCORES = {
+    "AMB": 0.5,
+    "MobileVintage": 0.5,
+    "DigitalScore": 0.5
+}
+
+🔧 Modified scoring snippet:
+if value is None:
+    score = FALLBACK_SCORES.get(var, 0.0)
+    row[f"{var}_score_reason"] = "Fallback applied"
+else:
+    score = score_fn(value)
+    row[f"{var}_score_reason"] = "Scored"
+
+============================
+4️⃣ UI FLAGS / OUTPUT REASONS
+============================
+🔧 What to do:
+- Add a `*_score_reason` column for each variable
+- This should say:
+  - “Scored”
+  - “Missing field”
+  - “Fallback applied”
+
+🔧 Example Output:
+AMB_score = 0.5
+AMB_score_reason = "Fallback applied"
+
+=======================
+✅ SUMMARY (FOR IMPLEMENTATION)
+=======================
+✔ Use fixed weights always – no dynamic adjustment
+✔ Score all available fields using function registry
+✔ Missing values = 0.0 or fallback, never skipped
+✔ Allow custom CSVs via field mapping dictionary
+✔ Output must include both scores + reasons for auditability
+
+This structure makes the engine:
+- Easy to adopt by DSAs
+- Configurable for any partner
+- Transparent and explainable for lenders
+
