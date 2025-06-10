@@ -1,0 +1,2 @@
+pan,age,monthly_income,credit_score,foir,dpd30plus,enquiry_count,credit_vintage,loan_mix_type,loan_completion_ratio,defaulted_loans,unsecured_loan_amount,outstanding_amount_percent,our_lender_exposure,channel_type,writeoff_flag
+ABCDE1234F,30,25000,650,0.4,0,2,48,PL/HL/CC,0.7,0,50000,0.4,0,Merchant/Referral,False
